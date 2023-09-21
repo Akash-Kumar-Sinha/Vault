@@ -1,13 +1,15 @@
 import React from "react";
 import './Register.css'
 import Logo from "../Logo/Logo";
+import Popup from "../Popups/Popup";
 
 class Register extends React.Component{
 
     constructor(props){
         super(props);
         this.state={
-            isVerifying: false
+            isVerifying: false,
+            otpPopup: false
         }
     }
 
@@ -66,7 +68,10 @@ class Register extends React.Component{
                                     id="mobile_number"
                                     placeholder="Mobile Number"
                                 />
+                                
                                 </div>
+
+                                
     
                                 <div className="mv3">
     
@@ -104,8 +109,9 @@ class Register extends React.Component{
     
                                 </div>
                                 <p className="w-90 b flex center">eVault uses Aadhaar Number to verify the user</p>
-                                        {this.state.isVerifying ? (
-                                            <div className="mt3">
+                                        {/* {this.state.isVerifying ? ( */}
+                                        <Popup trigger={this.state.otpPopup}>
+                                            <div className="mt3 flex flex-column">
                                                 <input
                                                     className="hover pa2 input-reset ba bg-transparent w-100"
                                                     type="text"
@@ -118,7 +124,7 @@ class Register extends React.Component{
                                                     <input
                                                         onClick={() => {
                                                             this.handleVerifyOTP();
-                                                            onRouteChange('signin');
+                                                            onRouteChange('clientsignin');
                                                         }}
                                                         className="hover b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib"
                                                         type="button"
@@ -126,17 +132,22 @@ class Register extends React.Component{
                                                     />
                                                 </div>
                                             </div>
-                                        ) : (
+                                </Popup>
+                                        {/* ) : ( */}
                                             <div className="flex justify-center">
                                                <button
-                                                    onClick={() => this.setState({ isVerifying: true })}
+                                                    onClick={() => {
+                                                        this.setState({ isVerifying: true, otpPopup: true });
+                                                    }
+                                                }
                                                     className="hover b ph3 pv2 ba b--black bg-transparent grow pointer f6 dib"
                                                     type="button"
                                                 >
                                                     Register
                                                 </button>
                                             </div>
-                                        )}
+                                        {/* ) */}
+                                        {/* } */}
                                     </fieldset>
                                 </div>
                             </main>

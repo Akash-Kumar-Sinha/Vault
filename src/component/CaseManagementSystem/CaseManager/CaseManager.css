@@ -3,3 +3,35 @@ header{
     background-color: #61498B;
     font-size: 3rem;
 }
+
+.details {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: fit-content;
+    overflow-x: auto;
+}
+
+table {
+    border-collapse: collapse;
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    background-color: #D9D9D9;
+    border-radius: 20px;
+}
+
+table tr {
+    border-bottom: 1px solid #ddd;
+}
+
+table th, table td {
+    padding: 1rem;
+    text-align: left;
+}
+
+@media (max-width: 768px) {
+    table {
+        font-size: 0.875rem;
+    }
+}

@@ -22,6 +22,10 @@ const Footer = () => {
                     <h3>
                         Follow us
                     </h3>
+
+                    <img className="twitter" src="/twitter.png" alt="twitter" width="30" />
+                    <img className="insta" src="/insta.png" alt="insta" width="25" />
+                    <img className="youtube" src="/youtube.png" alt="youtube" width="30" />
                 </div>
             </div>
         

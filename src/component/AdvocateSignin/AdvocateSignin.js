@@ -1,24 +1,25 @@
+// AdvocateSignin
 import React from "react";
-import './SignIn.css'
+import './AdvocateSignin.css'
 import Logo from "../Logo/Logo";
 
 
 
-class SignIn extends React.Component{
+class AdvocateSignin extends React.Component{
 
     constructor(props){
         super(props);
         this.state={
-            clientChecked: true,
-            advocateChecked: false,
+            clientChecked: false,
+            advocateChecked: true,
             judgeChecked: false
         }
     }
-
+    
     render(){
         const {onRouteChange} = this.props
         return(
-            <div className="signin">
+            <div className="advocatesignin">
                 <header>
                     <Logo/>
                 </header>
@@ -33,7 +34,7 @@ class SignIn extends React.Component{
     
                                 <fieldset id="sign_up" className="ba b--transparent ph0 mh0">
     
-                                <legend className="f3 fw6 ph0 mh0 center">Client Sign In</legend>
+                                <legend className="f3 fw6 ph0 mh0 center">Advocate Sign In</legend>
                                 
                                 <div className="login_person">
                                     <li>
@@ -58,16 +59,15 @@ class SignIn extends React.Component{
 
                                 <div className="mt3">
     
-                                    <label className="db fw6 lh-copy f6">Mobile Number</label>
+                                <label className="db fw6 lh-copy f6">License Number</label>
     
                                     <input 
                                         className="hover pa2 input-reset ba bg-transparent w-100" 
                                         type="number" 
-                                        name="mobile_number"  
-                                        id="mobile_number"
-                                        placeholder="Enter Mobile Number"
+                                        name="license_number"  
+                                        id="license_number"
+                                        placeholder="Enter License Number"
                                     />
-    
                                 </div>
     
                                 <div className="mv3">
@@ -93,21 +93,11 @@ class SignIn extends React.Component{
                                 <div className="flex justify-center">
     
                                 <input
-                                    onClick={()=>onRouteChange('home')}
+                                    onClick={()=>onRouteChange('publicjudiciary')}
                                     className="hover b ph3 pv2 input-reset ba b--black bg-transparent grow pointer f6 dib" 
                                     type="submit" 
                                     value="Sign in"
                                 />
-                                </div>
-    
-                                <div className="flex justify-center lh-copy mt3">
-    
-                                <p 
-                                    onClick={()=>onRouteChange('register')}
-                                    className="f6 link dim black db grow pointer">
-                                    Register
-                                    </p>
-    
                                 </div>
     
                             </div>
@@ -122,4 +112,4 @@ class SignIn extends React.Component{
     }
 }
 
-export default SignIn;
+export default AdvocateSignin;

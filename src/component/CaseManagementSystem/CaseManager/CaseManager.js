@@ -1,7 +1,11 @@
 import React from "react";
 import Logo from "../../Logo/Logo";
+import './CaseManager.css';
+import Footer from "../../Footer/Footer";
 
-const CaseManager = () => {
+class CaseManager extends React.Component {
+    render(){
+        const {onRouteChange} = this.props
     return(
         <div className="CaseManager inline-block items-center">
             <header>
@@ -11,14 +15,14 @@ const CaseManager = () => {
                 </div>
             </header>
 
-            <div className="peace">
+            <div className="peace box">
                 <p>
                 "Experience the peace of mind that comes with a blockchain eVault - where your documents are stored securely and forever."
                 </p>
             </div>
 
             <div className="details">
-            <table border="1">
+            <table>
                 <tr>
                     <td>Case Details</td>
                     <td>
@@ -43,7 +47,10 @@ const CaseManager = () => {
                     <td>1</td>
                     <td>4568</td>
                     <td>Pending</td>
-                    <td>Click here</td>
+                    <td
+                    onClick={() => onRouteChange("casedoc")}
+                    style={{cursor: "pointer"}}
+                    >Click here</td>
                 </tr>
                 <tr>
                     <td>2</td>
@@ -60,9 +67,11 @@ const CaseManager = () => {
 </table>
 
             </div>
+            <Footer/>
             
         </div>
     )
+}
 }
 
 export default CaseManager;

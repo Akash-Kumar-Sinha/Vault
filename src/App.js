@@ -7,12 +7,16 @@ import Dashboard from "./component/Dashboard/Dashboard";
 import CaseManager from "./component/CaseManagementSystem/CaseManager/CaseManager";
 import CreateEvault from "./component/CreateEvault/CreateEvault";
 import ViewDoc from "./component/ViewDoc/ViewDoc";
+import PublicJudiciary from "./component/PublicJudiciary/PublicJudiciary";
+import AdvocateSignin from "./component/AdvocateSignin/AdvocateSignin";
+import JudgeSignin from "./component/JudgeSignin/JudgeSignin";
+import CaseDoc from "./component/CaseManagementSystem/CaseDoc/CaseDoc";
 
 class App extends React.Component{
   constructor(){
     super();
     this.state = {
-      route: 'signin',
+      route: 'clientsignin',
       isSignIn: false,
       inputList: '',
       list: []
@@ -31,9 +35,10 @@ class App extends React.Component{
   render(){
     return (
       <div className="App">
+        {/* <CaseManager/> */}
         {this.state.route === 'home'
         ?<Home onRouteChange={this.onRouteChange}/>
-        :(this.state.route === 'signin'
+        :(this.state.route === 'clientsignin'
         ?<SignIn onRouteChange={this.onRouteChange} />
         :(this.state.route === 'register'
         ?<Register onRouteChange={this.onRouteChange}/>
@@ -45,7 +50,19 @@ class App extends React.Component{
         ?<CreateEvault onRouteChange={this.onRouteChange}/>
         :(this.state.route === 'viewdoc'
         ?<ViewDoc onRouteChange={this.onRouteChange}/>
-        :null)
+        :(this.state.route === 'publicjudiciary')
+        ?<PublicJudiciary onRouteChange={this.onRouteChange}/>
+        :(this.state.route === 'advocatesignin'
+        ?<AdvocateSignin onRouteChange={this.onRouteChange}/>
+        :(this.state.route === 'judgesignin'
+        ?<JudgeSignin onRouteChange={this.onRouteChange}/>
+        :(this.state.route === 'casedoc'
+        ?<CaseDoc onRouteChange={this.onRouteChange}/>
+        :null
+        )
+        )
+        )
+        )
         )
         )
         )

@@ -22,7 +22,6 @@
     }
 }
 
-/* Adjustments for laptops and larger screens */
 @media (min-width: 1024px) {
     .image_container {
         width: 80%;

@@ -1,10 +1,10 @@
 import React from "react";
 import Logo from "../Logo/Logo";
-import './Home.css'
+import './PublicJudiciary.css'
 import Footer from "../Footer/Footer";
 import Header from "../Header/Header";
 
-class Home extends React.Component{
+class PublicJudiciary extends React.Component{
 
     constructor(props){
         super(props);
@@ -73,24 +73,17 @@ class Home extends React.Component{
                             
                         </ul>
                     </p>
-                        <button 
-                        onClick={() => onRouteChange("createevault")}
-                        className="create center">
-                            Create eVault
-                        </button>
 
-                    
                 </div>
             </div>
 
             <div className="view_evault flex center pa2">
                 <div>
-                    <button 
-
-                        onClick={()=>onRouteChange('createevault')}
+                    {/* <button 
+                        onClick={()=>onRouteChange('viewdoc')}
                         className="view mb4">
-                        View eVault
-                    </button>
+                        View Cases
+                    </button> */}
                     <button
                         onClick={() => onRouteChange("casemanager")}
                      className="view manage mb4">
@@ -157,7 +150,9 @@ class Home extends React.Component{
                 <p>
                 <h2>How it works</h2>
 
-                <img className="work" src="/works.png" alt="work" />
+                    <p>
+                    The development of a blockchain-based eVault system for legal records can have a significant impact on improving access to justice in India. It can lead to faster, more efficient court proceedings, reduced costs, improved data integrity, and increased trust in the justice system. Moreover, it can provide a secure and transparent platform for storing and sharing legal records, making it easier for clients to access their own records and for lawyers to access relevant case information.
+                    </p>
 
                 </p>
                 </div>
@@ -190,4 +185,4 @@ class Home extends React.Component{
     }
 }
 
-export default Home;
+export default PublicJudiciary;

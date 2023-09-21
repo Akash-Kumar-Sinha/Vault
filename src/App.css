@@ -5,5 +5,9 @@ body{
 header{
     border: 2px solid transparent;
     background-color: #61498B;
-    font-size: 3rem;
+    font-size: 2.5rem;
+}
+
+button{
+    cursor: pointer;
 }
