@@ -12,19 +12,20 @@ class ViewDoc extends React.Component{
                 success: false
             }
         }
+
     render(){
-        const {onRouteChange} = this.props
+        const {onRouteChange} = this.props;
     return(
         <div className="CaseManager inline-block items-center">
             <header>
                 <div className="flex items-center">
                 <Logo/>
-                <p className="header_paragraph f3 white center">Case Details</p>
+                <p className="header_paragraph f3 white center">View Doc</p>
                 </div>
             </header>
 
             <div className="ma3">
-                <h3 className="ml6 pa2">ID's</h3>
+                <h3 className="ml6 pa2">Id's</h3>
                     <button
                         className="ml6 hover pa2 input-reset ba bg-transparent"
                         onClick={() => {

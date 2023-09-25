@@ -18,8 +18,8 @@ class App extends React.Component{
     this.state = {
       route: 'clientsignin',
       isSignIn: false,
-      inputList: '',
-      list: []
+      // inputList: '',
+      // list: []
     }
   }
 
@@ -32,10 +32,12 @@ class App extends React.Component{
 
     this.setState({route: route})
   }
+
+  
+
   render(){
     return (
       <div className="App">
-        {/* <CaseManager/> */}
         {this.state.route === 'home'
         ?<Home onRouteChange={this.onRouteChange}/>
         :(this.state.route === 'clientsignin'

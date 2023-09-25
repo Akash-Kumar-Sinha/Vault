@@ -8,11 +8,28 @@ class CreateEvault extends React.Component{
     constructor(props){
         super(props);
         this.state={
-            otp: false
+            otp: false,
+            input: '',
+            rows: []
         }
     }
+
+    onInputChange = (event) => {
+          this.setState({input: event.target.value})
+        }
+    
+    onCreateFolder = () => {
+        if (this.state.input.trim() !== '') {
+            this.setState((prevState) => ({
+            rows: [...prevState.rows, prevState.input],
+            input: '',
+            }));
+        }
+        };
+
     render(){
-        const {onRouteChange} = this.props
+        const {onRouteChange} = this.props;
+        let serialNumber = 0;
     return(
         <div className="CaseManager inline-block items-center">
             <header>
@@ -30,16 +47,17 @@ class CreateEvault extends React.Component{
             <Popup trigger={this.state.otp}>
                 <div className="mt3 flex flex-column">
                     <input
+                        onChange={this.onInputChange}
                         className="hover pa2 input-reset ba bg-transparent w-100"
                         type="text"
                         name="folder_name"
                         id="folder_name"
                         placeholder="Enter Folder Name"
-                        
                     />
                     <div className="flex justify-center">
                         <input
                             onClick={() => {
+                                this.onCreateFolder();
                                 onRouteChange("createevault");
                                 this.setState({ otp: false });
                             }}
@@ -64,30 +82,36 @@ class CreateEvault extends React.Component{
                 <tr>
                     <td>S.No.</td>
                     <td>Name</td>
-                    <td>Type</td>
+                    <td>Time</td>
                 </tr>
                 <tr>
-                    <td>1</td>
+                    <td>
+                        {++serialNumber}
+                    </td>
                     <td
                     onClick={() => {
                         onRouteChange("viewdoc");
                     }}
                     style={{cursor: "pointer"}}>ID's</td>
-                    <td>pdf</td>
+                    <td>{new Date().toLocaleString()}</td>
                 </tr>
-                <tr>
-                    <td>2</td>
-                    <td>Property</td>
-                    <td>pdf</td>
-                </tr>
-                <tr>
-                    <td>3</td>
-                    <td>Marksheet</td>
-                    <td>pdf</td>
-                </tr>
-            </table>
-            </div>
+                {this.state.rows.map((rowText, index) => (
+              <tr key={index}>
+                <td>{++serialNumber}</td>
+                <td
+                    onClick={() => {
+                        onRouteChange("viewdoc");
+                    }}
+                    style={{cursor: "pointer"}}
+                    >{rowText}
+                </td>
+                <td>{new Date().toLocaleString()}</td>
+              </tr>
+            ))}
 
+            </table>
+
+            </div>
 
             <Footer/>
         </div>
